@@ -18,17 +18,18 @@ axios.get('/user?ID=12345')
   });
   */
 
-  
+/*
 function postContent() {
 
 }
-
+*/
     return(
-        <div>
-
-        
-        </div>
-        
+      <div>
+        <form>
+          <label for="input1">Input1:</label><br/>
+          <input type="text" id="input1" name="input1" value="input1"/><br/>
+        </form>
+      </div> 
     );
 };
 
