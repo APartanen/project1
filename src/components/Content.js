@@ -1,4 +1,7 @@
 import React from "react";
+
+import CreatePost from "./CreatePost";
+
 import '../styles/Content.css';
 
 const Content = (props) => {
@@ -25,11 +28,8 @@ function postContent() {
 }
 */
     return(
-      <div className="cont">
-        <form>
-          <label for="input1">Input1:</label><br/>
-          <input type="text" id="input1" name="input1" value="input1"/><br/>
-        </form>
+      <div className="Content">
+        <CreatePost/>
       </div> 
     );
 };
