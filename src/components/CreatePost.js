@@ -6,11 +6,14 @@ const CreatePost = (props) => {
 
     return(
         <div>
-            <form>
+            <form method="POST">
                 <textarea id="textContent" name="textContentArea" rows="8" cols="50">
                     Postaus
-                </textarea>
+                </textarea> <br/>
+                <input type="submit" value="Submit"/> 
             </form>
+
+       
         </div>
     );
 };
