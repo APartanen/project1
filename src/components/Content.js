@@ -29,6 +29,7 @@ function postContent() {
 */
     return(
       <div className="Content">
+        <Posts/>
         <CreatePost/>
       </div> 
     );

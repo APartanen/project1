@@ -8,7 +8,7 @@ const CreatePost = (props) => {
         e.preventDefault();
 
         const formData = new FormData(this); //(this) refers to form - creates form data object
-        fetch('send to', { 
+        fetch('send to', { //change to backend
             method: 'POST',
             body: formData
         }).then(function (response){
