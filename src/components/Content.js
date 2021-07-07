@@ -1,5 +1,6 @@
 import React from "react";
-          
+import '../styles/Content.css';
+
 const Content = (props) => {
 //Axios here
 /*
@@ -24,7 +25,7 @@ function postContent() {
 }
 */
     return(
-      <div>
+      <div className="cont">
         <form>
           <label for="input1">Input1:</label><br/>
           <input type="text" id="input1" name="input1" value="input1"/><br/>
