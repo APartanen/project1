@@ -1,16 +1,24 @@
 import React from "react";
+import { useState } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CreatePost = (props) => {
+    let defaultPost = {value: "Postaus", category: "undecided"}
+    const [post, setPost] = useState(defaultPost);
 
-    postForm.addEventListener('submit', function (e) {
-        e.preventDefault();
+    function handleSubmit(e) {
+        e.preventDefault();    
 
-        const formData = new FormData(this); //(this) refers to form - creates form data object
-        fetch('http://localhost:3001/', { //change to backend
+        const sendObject = {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(post)
+        }
+
+        fetch('http://localhost:3001/postpost',sendObject, {
         }).then(function (response){
             return response.text();
         }).then(function(text){
@@ -18,19 +26,21 @@ const CreatePost = (props) => {
         }).catch(function(error) {
             console.error(error);
         })
-    })
+    }
 
     return(
         <div>
-            <form method="POST" id="postForm" class="postForm">
-                <textarea id="textContent" name="textContentArea" rows="8" cols="50">
-                    Postaus
+            <form className="postForm" onSubmit={handleSubmit}>
+                <textarea 
+                    id="textContent" 
+                    name="textContentArea" 
+                    rows="8" cols="50"
+                    defaultValue={defaultPost.content} 
+                    onChange={e => setPost({ ...post, value: e.target.value })}>
+                    
                 </textarea> <br/>
                 <button type="submit" value="Submit">Submit</button>
-               
             </form>
-
-       
         </div>
     );
 };
