@@ -4,7 +4,7 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CreatePost = (props) => {
-    let defaultPost = {value: "Postaus", category: "undecided"}
+    let defaultPost = {teksti: "Postaus", otsikko: "undecided", kuva: "placeholder", käyttäjäID:"1", tag:"1"}
     const [post, setPost] = useState(defaultPost);
 
     function handleSubmit(e) {
@@ -36,7 +36,7 @@ const CreatePost = (props) => {
                     name="textContentArea" 
                     rows="8" cols="50"
                     defaultValue={defaultPost.content} 
-                    onChange={e => setPost({ ...post, value: e.target.value })}>
+                    onChange={e => setPost({ ...post, teksti: e.target.teksti})}>
                     
                 </textarea> <br/>
                 <button type="submit" value="Submit">Submit</button>
