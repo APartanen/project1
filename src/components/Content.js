@@ -1,5 +1,9 @@
 import React from "react";
-          
+
+import CreatePost from "./CreatePost";
+
+import '../styles/Content.css';
+
 const Content = (props) => {
 //Axios here
 /*
@@ -18,17 +22,16 @@ axios.get('/user?ID=12345')
   });
   */
 
-  
+/*
 function postContent() {
 
 }
-
+*/
     return(
-        <div>
-
-        
-        </div>
-        
+      <div className="Content">
+        {/*<Posts/>*/}
+        <CreatePost/>
+      </div> 
     );
 };
 
