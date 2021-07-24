@@ -10,6 +10,7 @@ const CreatePost = (props) => {
     function handleSubmit(e) {
         e.preventDefault();    
 
+        console.log(post);
         const sendObject = {
             method: 'POST',
             headers: {
@@ -29,24 +30,31 @@ const CreatePost = (props) => {
     }
 
     return(
-        <div>
+        <div className="createPost">
             <form className="postForm" onSubmit={handleSubmit}>
 
-                <div class="form-group">
-                    <label for="formControlSelect">Post tags</label>
-                    <select class="form-control" id="formControlSelect">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                <div>
+                    <label htmlFor="formControlSelect">Post tags</label>
+                    <select 
+                        className="form-control" 
+                        id="formControlSelect" 
+                        onChange={e => setPost({ ...post, tag: e.target.value})}>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="formControlFile">Example file input</label> 
+                <div>
+                    <label htmlFor="formControlFile">Example file input</label> 
                     <br/>
-                    <input type="file" class="form-control-file" id="formControlFile"/>
+                    <input 
+                        type="file" 
+                        className="form-control-file" 
+                        id="formControlFile"
+                        onChange={e => setPost({ ...post, kuva: e.target.value})}/>
                 </div>
 
                 <textarea 
@@ -54,7 +62,7 @@ const CreatePost = (props) => {
                     name="textContentArea" 
                     rows="8" cols="50"
                     defaultValue={defaultPost.content} 
-                    onChange={e => setPost({ ...post, teksti: e.target.teksti})}>
+                    onChange={e => setPost({ ...post, teksti: e.target.value})}>
                     
                 </textarea> <br/>
                 <button type="submit" value="Submit">Submit</button>
