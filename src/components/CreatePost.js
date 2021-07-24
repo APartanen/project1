@@ -31,6 +31,24 @@ const CreatePost = (props) => {
     return(
         <div>
             <form className="postForm" onSubmit={handleSubmit}>
+
+                <div class="form-group">
+                    <label for="formControlSelect">Post tags</label>
+                    <select class="form-control" id="formControlSelect">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="formControlFile">Example file input</label> 
+                    <br/>
+                    <input type="file" class="form-control-file" id="formControlFile"/>
+                </div>
+
                 <textarea 
                     id="textContent" 
                     name="textContentArea" 
