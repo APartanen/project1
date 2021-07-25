@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from 'react';
 
+import '../styles/CreatePost.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CreatePost = (props) => {
@@ -10,6 +12,7 @@ const CreatePost = (props) => {
     function handleSubmit(e) {
         e.preventDefault();    
 
+        console.log(post);
         const sendObject = {
             method: 'POST',
             headers: {
@@ -29,17 +32,50 @@ const CreatePost = (props) => {
     }
 
     return(
-        <div>
+        <div className="createPost">
             <form className="postForm" onSubmit={handleSubmit}>
+                <div>
+                    <label htmlFor="formTitle" className="formTitleLabel">Example post title</label> 
+                    <br/>
+                    <input 
+                        className="formTitleClass"
+                        id="formTitle"
+                        onChange={e => setPost({ ...post, otsikko: e.target.value})}/>
+                </div>
+                <div>
+                    <label htmlFor="formControlSelect" className="postTagLabel">Post category</label>
+                    <select 
+                        className="form-control" 
+                        id="formControlSelect" 
+                        onChange={e => setPost({ ...post, tag: e.target.value})}>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="formControlFile" className="fileLabel">Example file input</label> 
+                    <br/>
+                    <input 
+                        type="file" 
+                        className="form-control-file" 
+                        id="formControlFile"
+                        onChange={e => setPost({ ...post, kuva: e.target.value})}/>
+                </div>
+
+
                 <textarea 
                     id="textContent" 
                     name="textContentArea" 
                     rows="8" cols="50"
                     defaultValue={defaultPost.content} 
-                    onChange={e => setPost({ ...post, teksti: e.target.teksti})}>
+                    onChange={e => setPost({ ...post, teksti: e.target.value})}>
                     
                 </textarea> <br/>
-                <button type="submit" value="Submit">Submit</button>
+                
+                <button className="submitButton" type="submit" value="Submit">Submit</button>
             </form>
         </div>
     );
