@@ -1,6 +1,6 @@
 .navi{
     position: fixed;
-    top: 0;
+    top: 65px;
     left: 0;
     width: 250px;
     height: 100%;
@@ -11,6 +11,5 @@
 
 .mainContent{
     margin-left: 250px;
-    padding: 10px;
 
 }

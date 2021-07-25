@@ -43,7 +43,7 @@ const CreatePost = (props) => {
                         onChange={e => setPost({ ...post, otsikko: e.target.value})}/>
                 </div>
                 <div>
-                    <label htmlFor="formControlSelect" className="postTagLabel">Post tags</label>
+                    <label htmlFor="formControlSelect" className="postTagLabel">Post category</label>
                     <select 
                         className="form-control" 
                         id="formControlSelect" 
