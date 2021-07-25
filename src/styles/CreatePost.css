@@ -1,0 +1,40 @@
+.createPost {
+    max-width: 450px;
+    border: 5px solid black;
+}
+
+
+.formTitleLabel{
+    margin: 1%;
+}
+
+.formTitleClass{
+    width: 99%;
+    margin: 1%;
+}
+
+.postTagLabel{
+    margin: 1%;
+}
+
+.form-control{
+    width: 99%;
+    margin: 1%;
+}
+
+.fileLabel{
+    margin: 1%;
+}
+
+.form-control-file{
+    margin: 1%;
+}
+
+textarea{
+    max-width: 99%;
+    margin: 1%;
+}
+
+.submitButton{
+    margin: 1%;
+}

@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from 'react';
 
+import '../styles/CreatePost.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CreatePost = (props) => {
@@ -32,9 +34,16 @@ const CreatePost = (props) => {
     return(
         <div className="createPost">
             <form className="postForm" onSubmit={handleSubmit}>
-
                 <div>
-                    <label htmlFor="formControlSelect">Post tags</label>
+                    <label htmlFor="formTitle" className="formTitleLabel">Example post title</label> 
+                    <br/>
+                    <input 
+                        className="formTitleClass"
+                        id="formTitle"
+                        onChange={e => setPost({ ...post, otsikko: e.target.value})}/>
+                </div>
+                <div>
+                    <label htmlFor="formControlSelect" className="postTagLabel">Post tags</label>
                     <select 
                         className="form-control" 
                         id="formControlSelect" 
@@ -46,9 +55,8 @@ const CreatePost = (props) => {
                             <option>5</option>
                     </select>
                 </div>
-
                 <div>
-                    <label htmlFor="formControlFile">Example file input</label> 
+                    <label htmlFor="formControlFile" className="fileLabel">Example file input</label> 
                     <br/>
                     <input 
                         type="file" 
@@ -56,6 +64,7 @@ const CreatePost = (props) => {
                         id="formControlFile"
                         onChange={e => setPost({ ...post, kuva: e.target.value})}/>
                 </div>
+
 
                 <textarea 
                     id="textContent" 
@@ -65,7 +74,8 @@ const CreatePost = (props) => {
                     onChange={e => setPost({ ...post, teksti: e.target.value})}>
                     
                 </textarea> <br/>
-                <button type="submit" value="Submit">Submit</button>
+                
+                <button className="submitButton" type="submit" value="Submit">Submit</button>
             </form>
         </div>
     );
