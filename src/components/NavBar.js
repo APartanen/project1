@@ -1,13 +1,24 @@
 import React from "react";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/NavBar.css';
+
+
 
 const NavBar = (props) => {
 
     return(
-        <div>
+        <div className="navBarContainer">
             <nav className="navbar navbar-default bg-dark navbar-light">
                 <ul className="navbar-nav mr-auto">
+                    <li className="nav-item active">
+                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                    </li>
+                    <li className="nav-item active">
+                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                    </li>
+                    <li className="nav-item active">
+                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                    </li>
                     <li className="nav-item active">
                         <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
                     </li>
