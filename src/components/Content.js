@@ -1,6 +1,7 @@
 import React from "react";
 
 import CreatePost from "./CreatePost";
+import Posts from "./Posts";
 
 import '../styles/Content.css';
 
@@ -29,8 +30,9 @@ function postContent() {
 */
     return(
       <div className="Content">
-        {/*<Posts/>*/}
-        <CreatePost/>
+        <Posts/>
+        {/*<CreatePost/>*/}
+ 
       </div> 
     );
 };
