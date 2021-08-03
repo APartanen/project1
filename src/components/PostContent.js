@@ -5,8 +5,10 @@ import React from "react";
 const Posts = ({post}) => {
 
     return(
-      <div className="postContainer">
-      
+      <div className="postContent">
+        otsikko: {post.otsikko}
+        teksti: {post.teksti}
+        julkaisuaika: {post.julkaisuAika}
       </div> 
     );
 };

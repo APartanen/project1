@@ -9,8 +9,8 @@ const Posts = ({posts}) => {
       <div className="postContainer">
         <ul>
           {posts.map(post =>
-            <li key={post.id}> 
-                <PostContent part={part}/>
+            <li key={post.postausID}> 
+                <PostContent post={post}/>
             </li>
           )}      
         </ul>
