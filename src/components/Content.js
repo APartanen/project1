@@ -6,25 +6,30 @@ import '../styles/Content.css';
 
 const Content = () => {
 
-  const [ posts, setPosts] = useState([]) 
-  const [ currentPage, setCurrentPage] = useState([]) 
+  const [ posts, setPosts] = useState([1]) 
+  const [ currentPage, setCurrentPage] = useState(2) 
 
-  const ID = {
-    method: 'GET',
-    headers: {
-    'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(currentPage),
-    };
+ 
 
   useEffect(() => {
+    const REQUEST_OPTIONS = {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      }
+    };
+    const REQUEST_URL = `http://localhost:3001/getPostsByTagID/${currentPage}`
+
     console.log('effect')
-    fetch
-      .get('http://localhost:3001/getPostsByTagID', ID)
-      .then(response => {
-        //console.log('promise fulfilled')
-        setPosts(response.data)
+    fetch(REQUEST_URL,REQUEST_OPTIONS)
+      .then(response => response.json()
+        ).then(res => {
+        console.log(res);
+        setPosts(res);
       })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }, [])
 
 
