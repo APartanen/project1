@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import CreatePost from "./CreatePost";
 import Posts from "./Posts";
 
@@ -6,31 +6,38 @@ import '../styles/Content.css';
 
 const Content = () => {
 
-  const [ posts, setPosts] = useState([]) 
-  const [ currentPage, setCurrentPage] = useState([]) 
+  const [ posts, setPosts] = useState([1]) 
+  const [ currentPage, setCurrentPage] = useState(2) 
 
-  const ID = {
-    method: 'GET',
-    headers: {
-    'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(currentPage),
-    };
+ 
 
   useEffect(() => {
+    const REQUEST_OPTIONS = {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      }
+    };
+    const REQUEST_URL = `http://localhost:3001/getPostsByTagID/${currentPage}`
+
     console.log('effect')
-    fetch
-      .get('http://localhost:3001/getPostsByTagID', ID)
-      .then(response => {
-        //console.log('promise fulfilled')
-        setPosts(response.data)
+    fetch(REQUEST_URL,REQUEST_OPTIONS)
+      .then(response => response.json()
+        ).then(res => {
+        console.log(res);
+        setPosts(res);
       })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }, [])
 
 
     return(
       <div className="Content">
-        <Posts posts = {posts}/>
+        <Suspense fallback={<h1>loading</h1>}> 
+          <Posts posts = {posts}/>
+        </Suspense>
         {/*<CreatePost/>*/}
  
       </div> 

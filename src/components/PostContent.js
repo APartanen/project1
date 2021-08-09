@@ -2,13 +2,14 @@ import React from "react";
 
 //import '../styles/PostContent.css';
 
-const Posts = ({post}) => {
+const PostContent = ({post}) => {
 
     return(
       <div className="postContent">
-        otsikko: {post.otsikko}
-        teksti: {post.teksti}
-        julkaisuaika: {post.julkaisuAika}
+        
+        otsikko: {post.otsikko} 
+        teksti: {post.teksti} 
+        julkaisuaika: {post.julkaisuAika} 
       </div> 
     );
 };
