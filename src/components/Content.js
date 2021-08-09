@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import CreatePost from "./CreatePost";
 import Posts from "./Posts";
 
@@ -35,7 +35,9 @@ const Content = () => {
 
     return(
       <div className="Content">
-        <Posts posts = {posts}/>
+        <Suspense fallback={<h1>loading</h1>}> 
+          <Posts posts = {posts}/>
+        </Suspense>
         {/*<CreatePost/>*/}
  
       </div> 
