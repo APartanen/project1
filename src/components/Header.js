@@ -4,9 +4,9 @@ import NavBar from "./NavBar";
 const Header = (props) => {
 
     return(
-        <div>
+        <>
             <NavBar/>
-        </div>
+        </>
     );
 };
 
