@@ -2,11 +2,14 @@ import React, { useState, useEffect, Suspense } from 'react';
 import CreatePost from "./CreatePost";
 import Posts from "./Posts";
 
+
 import '../styles/Content.css';
+
+
 
 const Content = () => {
 
-  const [ posts, setPosts] = useState([1]) 
+  const [ posts, setPosts] = useState([{postausID: 0, otsikko: "loading", teksti: "waiting", julkaisuAika:"10/08/2021"}]) 
   const [ currentPage, setCurrentPage] = useState(2) 
 
  
@@ -35,9 +38,9 @@ const Content = () => {
 
     return(
       <div className="Content">
-        <Suspense fallback={<h1>loading</h1>}> 
+
           <Posts posts = {posts}/>
-        </Suspense>
+
         {/*<CreatePost/>*/}
  
       </div> 
