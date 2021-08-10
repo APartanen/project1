@@ -5,6 +5,7 @@
 
 .navBarContainer{
     margin: 0;
+    padding: 5%;
 }
 
 nav {
@@ -13,3 +14,11 @@ nav {
     height: 100%;
     background-color: red;
 }
+
+.navbar li a {
+    color: #fff;
+  }
+ 
+ .navbar a:hover {
+  color: gray;
+ }

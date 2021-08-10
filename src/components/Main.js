@@ -8,14 +8,14 @@ import '../styles/Main.css';
 const Main = (props) => {
 
     return(
-        <div>
+        <div className="mainContainer bg-dark">
             <div>
                 <TopHeader/>
             </div>
-            <div className="navi">
+            <div className="navi bg-dark">
                 <Header/>
             </div>
-            <div className="mainContent">
+            <div className="mainContent bg-light">
                 <Content/>
                 <Footer/>
             </div>
